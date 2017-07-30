@@ -1,0 +1,14 @@
+<template name="tasks">
+  <form class="forml">
+    <fieldset class="uk-fieldset">
+      <legend class="uk-legend">Tareas</legend>
+      <div class="uk-margin">
+        <input class="uk-input" type="text" placeholder="Nueva tarea">
+      </div>
+    </fieldset>
+  </form>
+
+  <ul class="uk-list uk-list-striped">
+    {{#each ltasks}} {{> task}} {{/each}}
+  </ul>
+</template>

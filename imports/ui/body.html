@@ -1,0 +1,48 @@
+<body>
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+
+      <ul class="uk-navbar-nav">
+        <li class="uk-active"><a href="#">Inicio</a></li>
+        <li>
+          <a href="#">Repositorios</a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li class="uk-active"><a href="#">Documentos</a></li>
+              <li><a href="#">Historial</a></li>
+              <li><a href="#">Resumen</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Grupos</a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li class="uk-active"><a href="#">Usuarios</a></li>
+              <li><a href="#">Mis grupos</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#">Mi cuenta</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <br>
+
+  <main class="uk-container">
+    <div class="uk-child-width-expand@s" uk-grid>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding" style="z-index: 980;" uk-sticky="bottom: #offset">
+          {{> tasks }}
+        </div>
+      </div>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding">
+          {{> documents }}
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>

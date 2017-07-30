@@ -1,0 +1,32 @@
+<template name="documents">
+  <form class="forml">
+    <fieldset class="uk-fieldset">
+      <legend class="uk-legend">Mis documentos</legend>
+      {{#with currentUpload}} 
+        Uploading <b>
+        {{file.name}}</b>:
+        <span id="progress">
+          {{progress.get}}%
+        </span>
+      {{else}}
+        <div class="test-upload uk-placeholder uk-text-center">
+          <span uk-icon="icon: cloud-upload"></span>
+          <span class="uk-text-middle">Arrastra un archivo hasta aqui o</span>
+          <div uk-form-custom>
+            <input id="fileInput" type="file" multiple>
+            <span class="uk-link">Selecciona uno</span>
+          </div>
+        </div>
+      {{/with}}
+      <progress id="progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+    </fieldset>
+  </form>
+
+  <ul uk-accordion>
+    {{#if ldocuments}} 
+      {{#each ldocuments}} 
+        {{> document }} 
+      {{/each}} 
+    {{else}} No tienes documentos {{/if}}
+  </ul>
+</template>
