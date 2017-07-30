@@ -4,6 +4,9 @@ import '../imports/api/tareas'
 import '../imports/api/documentos'
 import '../imports/ui/body'
 
+import '../imports/helpers/string.help'
+import '../imports/helpers/date.help'
+
 /*
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';

@@ -1,5 +1,9 @@
-import { Template } from 'meteor/templating'
-import { Documentos } from '../../api/documentos'
+import {
+  Template
+} from 'meteor/templating'
+import {
+  Documentos
+} from '../../api/documentos'
 import fs from 'fs'
 
 import './document'
@@ -30,12 +34,12 @@ Template.documents.helpers({
 });
 
 Template.documents.events({
-  'change #fileInput'(e, template) {
+  'change #fileInput' (e, template) {
     if (e.currentTarget.files && e.currentTarget.files[0]) {
       // We upload only one file, in case
       // multiple files were selected
       const upload = Documentos.insert({
-        file: e.currentTarget.files[0],
+        file: e.currentTarget.files[0]        ,
         streams: 'dynamic',
         chunkSize: 'dynamic'
       }, false);

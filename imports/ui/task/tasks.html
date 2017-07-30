@@ -3,12 +3,23 @@
     <fieldset class="uk-fieldset">
       <legend class="uk-legend">Tareas</legend>
       <div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="Nueva tarea">
+        <input class="uk-input" type="text" placeholder="Escribe una tarea o nota">
       </div>
     </fieldset>
   </form>
 
-  <ul class="uk-list uk-list-striped">
-    {{#each ltasks}} {{> task}} {{/each}}
+  <ul class="uk-flex-center" uk-tab>
+    <li id="pendiente" class="uk-active"><a href="#">Pendiente</a></li>
+    <li id="terminados"><a href="#">Terminados</a></li>
   </ul>
+
+  {{#if equals option 0}}
+    <ul class="uk-list uk-list-striped">
+      {{#each ltasks}} {{> task}} {{/each}}
+    </ul>
+  {{else}}  
+     <ul class="uk-list uk-list-striped">
+       {{#each ltasks_pendientes}} {{> task}} {{/each}}
+     </ul>
+  {{/if}}
 </template>

@@ -1,5 +1,25 @@
 <template name="task">
-  <li title="Creado {{createdAt}}">
-    {{text}}
+  <li class="none" title="Creado {{createdAt}}">
+    <label>
+      <div uk-grid>
+        <div>
+          <input class="uk-checkbox" type="checkbox" checked="{{ checked }}"/>
+        </div>
+        <div>
+          <div>
+            {{text}}
+          </div>
+        </div>
+        <div>
+          <div>
+            <ul class="uk-iconnav">
+              <li><a href="#" uk-icon="trash"></a></li>            
+              <li><a href="#" uk-icon="file-edit"></a></li>
+              <li><a href="#" uk-icon="copy"></a></li>            
+            </ul>
+          </div>
+        </div>
+      </div>                  
+    </label>
   </li>
 </template>
