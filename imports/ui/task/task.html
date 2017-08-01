@@ -1,24 +1,28 @@
 <template name="task">
-  <li class="none" title="Creado {{createdAt}}">
+  <li class="none" title="Creado {{createdAt}} por {{username}}">
     <label>
       <div uk-grid>
-        <div>
-          <input class="uk-checkbox" type="checkbox" checked="{{ checked }}"/>
-        </div>
+        {{#if currentUser}}
+          <div>
+            <input class="uk-checkbox" type="checkbox" checked="{{ checked }}"/>
+          </div>
+        {{/if}}
         <div>
           <div>
             {{text}}
           </div>
         </div>
-        <div>
+        {{#if currentUser}}
           <div>
-            <ul class="uk-iconnav">
-              <li><a href="#" uk-icon="trash"></a></li>            
-              <li><a href="#" uk-icon="file-edit"></a></li>
-              <li><a href="#" uk-icon="copy"></a></li>            
-            </ul>
+            <div>
+              <ul class="uk-iconnav">
+                <li><a href="#" uk-icon="trash"></a></li>            
+                <li><a href="#" uk-icon="file-edit"></a></li>
+                <li><a href="#" uk-icon="copy"></a></li>            
+              </ul>
+            </div>
           </div>
-        </div>
+        {{/if}}
       </div>                  
     </label>
   </li>

@@ -1,13 +1,16 @@
 <template name="tasks">
-  <form class="forml">
-    <fieldset class="uk-fieldset">
-      <legend class="uk-legend">Tareas</legend>
-      <div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="Escribe una tarea o nota">
-      </div>
-    </fieldset>
-  </form>
 
+  {{#if currentUser}}
+    <form class="forml">
+      <fieldset class="uk-fieldset">
+        <legend class="uk-legend">Tareas</legend>
+        <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="Escribe una tarea o nota">
+        </div>
+      </fieldset>
+    </form>
+  {{/if}}
+  
   <ul class="uk-flex-center" uk-tab>
     <li id="pendiente" class="uk-active"><a href="#">Pendiente</a></li>
     <li id="terminados"><a href="#">Terminados</a></li>

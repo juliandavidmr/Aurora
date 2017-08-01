@@ -4,24 +4,11 @@ import { Tareas } from '../../api/tareas'
 import './task.html'
 
 Template.task.events({
-  'mouseenter .none' () {
-    console.log("Mouse enter")
-
-    Tareas.update(this._id, {
-      $set: {
-        showoption: true
-      }
-    })
-  },
   'click .uk-checkbox' () {
     console.log("Check ", this._id)
-    Tareas.update(this._id, {
-      $set: {
-        checked: !this.checked
-      }
-    })
+    Meteor.call('tareas.setChecked', this._id, !this.checked)    
   },
   'click .delete' () {
-    Tareas.remove(this._id)
+    Meteor.call('tareas.remove', this._id)
   }
 })

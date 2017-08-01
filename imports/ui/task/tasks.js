@@ -1,17 +1,14 @@
-import {
-  Template
-} from 'meteor/templating'
-import {
-  Tareas
-} from '../../api/tareas'
-import {
-  ReactiveVar
-} from 'meteor/reactive-var';
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating'
+import { Tareas } from '../../api/tareas'
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import './tasks.html'
 
 Template.tasks.onCreated(function () {
   this.option = new ReactiveVar(0);
+  
+  Meteor.subscribe('Tareas');
 });
 
 Template.tasks.helpers({
@@ -60,11 +57,7 @@ Template.tasks.events({
     const target = event.target;
     const text = target[1].value
 
-    Tareas.insert({
-      text,
-      createdAt: new Date(),
-      checked: false
-    })
+    Meteor.call('tareas.insert', text)
 
     target[1].value = ''
   }

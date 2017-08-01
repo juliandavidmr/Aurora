@@ -1,5 +1,9 @@
 <body>
-  <nav class="uk-navbar-container" uk-navbar>
+  {{> layout}}
+</body>
+
+<template name="layout">
+   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
 
       <ul class="uk-navbar-nav">
@@ -23,7 +27,9 @@
             </ul>
           </div>
         </li>
-        <li><a href="#">Mi cuenta</a></li>
+        <li>
+          <a href="#">{{> loginButtons}}</a>           
+        </li>
       </ul>
     </div>
   </nav>
@@ -31,18 +37,22 @@
   <br>
 
   <main class="uk-container">
-    <div class="uk-child-width-expand@s" uk-grid>
-      <div>
-        <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding" style="z-index: 980;" uk-sticky="bottom: #offset">
-          {{> tasks }}
+    {{#if equals menu_option 0 }}
+      <div class="uk-child-width-expand@s" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding" style="z-index: 980;" uk-sticky="bottom: #offset">
+            {{> tasks }}
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding">
+            {{> documents }}
+          </div>
         </div>
       </div>
-      <div>
-        <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge uk-padding">
-          {{> documents }}
-        </div>
-      </div>
-    </div>
+    {{/if}}
+    {{#if equals menu_option 1}}
+      {{> repository}}
+    {{/if}}
   </main>
-
-</body>
+</template>

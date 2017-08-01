@@ -3,10 +3,12 @@
     <h3 class="uk-accordion-title">
       <span class="uk-label">{{ext}}</span> {{short name}}
     </h3>
-    <div class="uk-accordion-content">
-      <p>
-        Subido
-      </p>
-    </div>
+    {{#if currentUser}}
+      <div class="uk-accordion-content">
+        <p>
+          Subido
+        </p>
+      </div>
+    {{/if}}
   </li>
 </template>
